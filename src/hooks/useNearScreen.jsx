@@ -16,7 +16,7 @@ const fromRef = useRef()
     
       }
       const observer = new IntersectionObserver(onChange, {
-        rootMargin: "100px"
+        rootMargin: "120px"
       }) 
   
       observer.observe(fromRef.current)

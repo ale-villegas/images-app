@@ -8,6 +8,7 @@ import {
 } from "react-icons/ai";
 import { PhotosContext } from "../context/PhotosContext";
 import { ACTIONS_TYPES } from "../utils/reducerPhotos";
+import { motion } from "framer-motion";
 
 const Modal = ({ photo, handleClose }) => {
   const { dispatch, photos } = useContext(PhotosContext);
@@ -28,10 +29,12 @@ const Modal = ({ photo, handleClose }) => {
     }
   };
 
-
-
   return (
-    <div className="modal">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.7 }}
+      whileInView={{ opacity: 1 , scale: 1}}
+      className="modal"
+    >
       <div className="box-image">
         <AiFillCloseCircle
           className="btn-close"
@@ -55,7 +58,7 @@ const Modal = ({ photo, handleClose }) => {
         <img src={photo.img_regular} alt={photo.description} />
       </div>
       <p>{photo.description}</p>
-    </div>
+    </motion.div>
   );
 };
 

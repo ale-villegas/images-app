@@ -13,14 +13,18 @@ const SearchView = ({photos,  handleClickPhoto}) => {
     
     <MasonryComponent>   
 
-          {input &&
+          {input && photos.searchPhotos.length > 0 ?
             photos.searchPhotos.map((photo) => (
               <Photo
                 photo={photo}
                 key={photo.id}
                 openModal={() => handleClickPhoto(photo)}
               />
-            ))}
+            ))
+          :
+
+          <span className="not-photos">Looks like you haven&apos;t made any searches yet. Start by entering a keyword above!</span>
+          }
 
 
     </MasonryComponent>
